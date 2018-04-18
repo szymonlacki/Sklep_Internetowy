@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="900.0" styleClass="borderPane" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.MainController">
+   <left>
+      <VBox minWidth="-Infinity" prefHeight="369.0" prefWidth="183.0" styleClass="leftPane" BorderPane.alignment="CENTER">
+         <children>
+             <fx:include fx:id="menuButtons" source="MenuButtons.fxml" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <VBox prefHeight="128.0" prefWidth="1200.0" styleClass="topPane" BorderPane.alignment="CENTER">
+         <children>
+             <fx:include source="Logo.fxml" />
+            <Separator prefHeight="20.0" prefWidth="900.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="-30.0" />
+               </padding>
+            </Separator>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="BOTTOM_RIGHT" prefHeight="250.0" prefWidth="568.0" styleClass="contentPane" BorderPane.alignment="CENTER" />
+
+
+   </center>
+</BorderPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="regPane" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="33.0" layoutY="78.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField layoutX="220.0" layoutY="78.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField layoutX="33.0" layoutY="177.0" prefHeight="32.0" prefWidth="149.0" />
+      <MenuButton layoutX="220.0" layoutY="177.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="100.0" styleClass="month" text="Miesiąc">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Styczeń" />
+          <MenuItem mnemonicParsing="false" text="Luty" />
+            <MenuItem mnemonicParsing="false" text="Marzec" />
+            <MenuItem mnemonicParsing="false" text="Kwiecień" />
+            <MenuItem mnemonicParsing="false" text="Maj" />
+            <MenuItem mnemonicParsing="false" text="Czerwiec" />
+            <MenuItem mnemonicParsing="false" text="Lipiec" />
+            <MenuItem mnemonicParsing="false" text="Sierpień" />
+            <MenuItem mnemonicParsing="false" text="Wrzesień" />
+            <MenuItem mnemonicParsing="false" text="Październik" />
+            <MenuItem mnemonicParsing="false" text="Listopad" />
+            <MenuItem mnemonicParsing="false" text="Grudzeń" />
+        </items>
+      </MenuButton>
+      <TextField layoutX="341.0" layoutY="177.0" prefHeight="32.0" prefWidth="149.0" />
+      <Text layoutX="33.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="220.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzień" />
+      <Text layoutX="341.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rok" />
+      <TextField layoutX="33.0" layoutY="236.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField layoutX="33.0" layoutY="292.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField layoutX="33.0" layoutY="344.0" prefHeight="32.0" prefWidth="149.0" />
+      <Text layoutX="33.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Twoje dane">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="270.0" layoutY="23.0" startX="-100.0" />
+      <Text layoutX="33.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data urodzenia">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="227.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miesiąc" />
+      <Text layoutX="34.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybierz login">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Powtórz hasło">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Button layoutX="437.0" layoutY="354.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" styleClass="regButton" text="Zarejestruj" />
+   </children>
+</Pane>
