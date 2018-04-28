@@ -2,110 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95de76b9-362a-41b5-9de8-ce30095430f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/CartController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Cart.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/Agd.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/BinController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Bin.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/SZABLON pustej www/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/kod_js.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/pad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/animation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/fontello-codes.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/fontello-embedded.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/fontello-ie7-codes.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/fontello-ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/css/fontello.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/font/fontello.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/font/fontello.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/font/fontello.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/font/fontello.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/jquery-1.11.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/pad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/styles/kurs_css3/www/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/fxml/Bin.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/model/Agd.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/BinController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/server/net/ClientListener$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/SZABLON pustej www/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/kod_js.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/pad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/animation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/fontello-codes.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/fontello-embedded.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/fontello-ie7-codes.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/fontello-ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/css/fontello.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/font/fontello.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/font/fontello.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/font/fontello.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/font/fontello.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/jquery-1.11.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/pad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles/kurs_css3/www/style.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/CsvMenager.class" afterPath="$PROJECT_DIR$/target/classes/DAO/CsvMenager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/DAOFactory.class" afterPath="$PROJECT_DIR$/target/classes/DAO/DAOFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/DTO/Purchase.class" afterPath="$PROJECT_DIR$/target/classes/DAO/DTO/Purchase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/DTO/User.class" afterPath="$PROJECT_DIR$/target/classes/DAO/DTO/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/InterfaceDAO.class" afterPath="$PROJECT_DIR$/target/classes/DAO/InterfaceDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/InterfaceDTO.class" afterPath="$PROJECT_DIR$/target/classes/DAO/InterfaceDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/ProductDAO.class" afterPath="$PROJECT_DIR$/target/classes/DAO/ProductDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/PurchaseDAO.class" afterPath="$PROJECT_DIR$/target/classes/DAO/PurchaseDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAO/UserDAO.class" afterPath="$PROJECT_DIR$/target/classes/DAO/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/communication/Protocol.class" afterPath="$PROJECT_DIR$/target/classes/communication/Protocol.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/communication/REQUEST_ID.class" afterPath="$PROJECT_DIR$/target/classes/communication/REQUEST_ID.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/communication/RESPONSE_ID.class" afterPath="$PROJECT_DIR$/target/classes/communication/RESPONSE_ID.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/communication/Request.class" afterPath="$PROJECT_DIR$/target/classes/communication/Request.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/communication/Response.class" afterPath="$PROJECT_DIR$/target/classes/communication/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/AgdController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/AgdController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MainController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MenuButtonsController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MenuButtonsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MobilesController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/MobilesController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/WearController.class" afterPath="$PROJECT_DIR$/target/classes/nasz/sklepik/controllers/WearController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/Controller.class" afterPath="$PROJECT_DIR$/target/classes/server/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/Server.class" afterPath="$PROJECT_DIR$/target/classes/server/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/WritableGUI.class" afterPath="$PROJECT_DIR$/target/classes/server/WritableGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/net/ClientListener.class" afterPath="$PROJECT_DIR$/target/classes/server/net/ClientListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/net/PortListener.class" afterPath="$PROJECT_DIR$/target/classes/server/net/PortListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/10.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/12.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/13.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/14.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/15.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/16.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/17.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/4.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/icons/9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/DetailsController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/RegistrationController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/UserController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Details.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserPane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baza/products.csv" afterPath="$PROJECT_DIR$/baza/products.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baza/purchases.csv" afterPath="$PROJECT_DIR$/baza/purchases.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baza/users.csv" afterPath="$PROJECT_DIR$/baza/users.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DAO/CsvMenager.java" afterPath="$PROJECT_DIR$/src/main/java/DAO/CsvMenager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/AgdController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/AgdController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MenuButtonsController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MenuButtonsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MobilesController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/MobilesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/WearController.java" afterPath="$PROJECT_DIR$/src/main/java/nasz/sklepik/controllers/WearController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/net/PortListener.java" afterPath="$PROJECT_DIR$/src/main/java/server/net/PortListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Agd.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Agd.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Logo.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Logo.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/MenuButtons.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MenuButtons.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Mobiles.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Mobiles.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/RegistrationPane.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/RegistrationPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Wear.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Wear.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Agd.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Agd.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Logo.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Logo.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/MenuButtons.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/MenuButtons.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Mobiles.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Mobiles.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/RegistrationPane.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/RegistrationPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Wear.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Wear.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/styles/styles.css" afterPath="$PROJECT_DIR$/target/classes/styles/styles.css" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -546,7 +466,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -859,6 +779,14 @@
       <option name="presentableId" value="Default" />
       <updated>1524651015562</updated>
     </task>
+    <task id="LOCAL-00001" summary="To co zrobiłem">
+      <created>1524927653443</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524927653443</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -914,6 +842,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="To co zrobiłem" />
+    <option name="LAST_COMMIT_MESSAGE" value="To co zrobiłem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
