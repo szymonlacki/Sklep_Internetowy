@@ -23,6 +23,15 @@
             <Insets top="-10.0" />
          </padding>
       </TableView>
-      <Button fx:id="kup" mnemonicParsing="false" onAction="#addToBin" text="Dodaj do koszyka" />
+      <Button fx:id="kup" mnemonicParsing="false" onAction="#addToBin" prefHeight="42.0" prefWidth="142.0" styleClass="addBinButton" text="Dodaj do koszyka">
+         <VBox.margin>
+            <Insets right="200.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="details" mnemonicParsing="false" onAction="#showDetails" prefHeight="42.0" prefWidth="142.0" styleClass="addBinButton" text="Szczegóły">
+         <VBox.margin>
+            <Insets left="300.0" right="60.0" top="-53.0" />
+         </VBox.margin>
+      </Button>
    </children>
 </VBox>

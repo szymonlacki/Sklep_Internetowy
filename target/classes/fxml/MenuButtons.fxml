@@ -7,21 +7,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.MenuButtonsController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.MenuButtonsController">
    <children>
       <VBox spacing="10.0">
          <children>
-            <ToggleButton mnemonicParsing="false" onAction="#showAgd" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="AGD">
+            <ToggleButton mnemonicParsing="false" onAction="#showAgd" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="AGD">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleButtons" />
                </toggleGroup></ToggleButton>
-            <ToggleButton mnemonicParsing="false" onAction="#showWear" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="WEAR" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showMobiles" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="MOBILES" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showNewest" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="NEWEST" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showTop" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="TOP" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showBin" prefHeight="70.0" prefWidth="150.0" styleClass="leftButtons" text="KOSZYK">
+            <ToggleButton mnemonicParsing="false" onAction="#showWear" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="WEAR" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showMobiles" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="MOBILES" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showNewest" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="NEWEST" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showTop" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="TOP" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showCart" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="KOSZYK">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleButtons1" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" onAction="#showProfile" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="MÓJ PROFIL">
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleButtons11" />
                </toggleGroup>
             </ToggleButton>
          </children>

@@ -17,11 +17,16 @@ public class MainController {
     private BorderPane borderPane;
     @FXML
     private MenuButtonsController menuButtonsController;
+    private LoginController loginController;
 
 
     @FXML
     private void initialize() {
         menuButtonsController.setMainController(this);
+        loginController = (LoginController) setTop();
+        menuButtonsController.setLoginController(loginController);
+        menuButtonsController.refresh();
+
     }
 
     public Object setCenter(String fxmlPath) {
@@ -33,7 +38,21 @@ public class MainController {
             e.printStackTrace();
         }
         borderPane.setCenter(parent);
-        
+
+        return loader.getController();
+    }
+
+    private Object setTop() {
+        String fxmlPath = "/fxml/Logo.fxml";
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
+        Parent parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        borderPane.setTop(parent);
+
         return loader.getController();
     }
 }

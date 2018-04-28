@@ -29,7 +29,7 @@
                </VBox.margin>
             </TextField>
             <PasswordField fx:id="passsword" promptText="password" />
-            <Button fx:id="przycisk" mnemonicParsing="false" onAction="#logowanie" prefHeight="36.0" prefWidth="114.0" styleClass="loginButton" text="Zaloguj sie">
+            <Button fx:id="przycisk" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="114.0" styleClass="loginButton" text="Zaloguj sie">
                <VBox.margin>
                   <Insets left="22.0" />
                </VBox.margin>

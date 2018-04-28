@@ -10,12 +10,10 @@ import java.util.ArrayList;
 public class PortListener extends Thread {
 
 
-
     private ArrayList<ClientListener> testHandlerList;
     private ServerSocket serverSocket;
 
     private WritableGUI gui;
-
 
 
     public PortListener(WritableGUI gui) {
@@ -24,10 +22,8 @@ public class PortListener extends Thread {
     }
 
 
-
     @Override
-    public void run()
-    {
+    public void run() {
         System.out.println("Port Listener started");
         gui.write("Port Listener Started");
 
@@ -45,31 +41,26 @@ public class PortListener extends Thread {
                     }
 
                     Socket s = serverSocket.accept();
-                    if(!testHandlerList.contains(s))
-                    {listener = new ClientListener(s,gui);
+                    if (!testHandlerList.contains(s)) {
+                        listener = new ClientListener(s, gui);
                         testHandlerList.add(listener);
-                        listener.start();}
+                        listener.start();
+                    }
                 }
 
-            }
-
-            catch (IOException e) {
+            } catch (IOException e) {
 
                 for (ClientListener aTestHandlerList : testHandlerList) {
                     (aTestHandlerList).interrupt();
                 }
 
 
-            }
-            finally
-            {
+            } finally {
                 try {
-                    if(serverSocket != null)
-                        if(!serverSocket.isClosed())
+                    if (serverSocket != null)
+                        if (!serverSocket.isClosed())
                             serverSocket.close();
-                }
-                catch(IOException e)
-                {
+                } catch (IOException e) {
 
                     e.printStackTrace();
                 }

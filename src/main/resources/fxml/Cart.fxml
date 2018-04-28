@@ -43,7 +43,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label fx:id="textsum" prefHeight="23.0" prefWidth="77.0" text="Do zaplaty:" textFill="#8a1111">
+      <Label fx:id="su" prefHeight="23.0" prefWidth="77.0" text="Do zaplaty:" textFill="#8a1111">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

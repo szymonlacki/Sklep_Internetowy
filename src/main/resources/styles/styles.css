@@ -103,3 +103,13 @@
 -fx-width:400px;;
 
 }
+
+.addBinButton:hover{
+
+-fx-cursor:hand;
+}
+
+.dialog-pane .button{
+ -fx-cursor:hand;
+ }
+

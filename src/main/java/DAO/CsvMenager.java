@@ -102,6 +102,7 @@ public class CsvMenager {
                 // utworzenie obiektu na podstawie odczytanych danych
                 Purchase purchase = new Purchase();
                 purchase.setId(Long.parseLong(purchaseData[0]));
+                purchase.setId(Long.parseLong(purchaseData[0]));
                 purchase.setUserId(Long.parseLong(purchaseData[1]));
                 purchase.setProductId(Long.parseLong(purchaseData[2]));
                 purchase.setAmount(Integer.parseInt(purchaseData[3]));

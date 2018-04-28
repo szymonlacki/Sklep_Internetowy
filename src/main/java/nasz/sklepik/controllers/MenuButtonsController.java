@@ -1,6 +1,8 @@
 package nasz.sklepik.controllers;
 
 import DAO.DTO.Product;
+import DAO.DTO.User;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * Created by Szymon on 06.03.2018.
@@ -16,10 +19,15 @@ public class MenuButtonsController {
 
     private MainController mainController;
 
-    private ObservableList<Product> refreshProducts;
+    private LoginController loginController;
 
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
+    private ObservableList<Product> refreshProducts = FXCollections.observableArrayList();
+
+    private User logged;
+
+
+    public void refresh() {
+        loginController.setCtrl(this);
     }
 
 
@@ -32,20 +40,24 @@ public class MenuButtonsController {
         ctrl.setCtrl(this);
     }
 
-    public void showBin() throws IOException {
+    public void showCart() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Bin.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Cart.fxml"));
         Pane root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
         stage.setResizable(false);
 
-        BinController controller = loader.getController();
-        controller.setProducts(refreshProducts);
+        CartController controller = loader.getController();
 
-        //Odświeżam, zeby utworzyłe liste na podstawie dostarczonych produktów
+        controller.setProducts(refreshProducts);
+        controller.setLogged(logged);
+        // Odświeżam, zeby utworzyłe liste na podstawie dostarczonych
+        // produktów
+
         controller.refresh();
+
     }
 
     public void showWear() {
@@ -76,9 +88,31 @@ public class MenuButtonsController {
         mainController.setCenter("/fxml/Top.fxml");
     }
 
+    public void showProfile() {
 
-    public void setAgdProducts(ObservableList<Product> agdProducts) {
-        this.refreshProducts = agdProducts;
+        UserController ctrl = (UserController) mainController.setCenter("/fxml/UserPane.fxml");
+        ctrl.setLogged(logged);
+
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    public void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
+    }
+
+    public void addProducts(ObservableList<Product> products) {
+        Iterator<Product> iterator = products.iterator();
+
+        while (iterator.hasNext()) {
+            this.refreshProducts.add(iterator.next());
+        }
+    }
+
+    public void setLogged(User logged) {
+        this.logged = logged;
     }
 
 
