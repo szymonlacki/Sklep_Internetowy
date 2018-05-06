@@ -9,14 +9,9 @@ import communication.Protocol;
 import communication.REQUEST_ID;
 import communication.Request;
 import communication.Response;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.text.DateFormat;
@@ -53,7 +48,7 @@ public class PdfCreator {
     }
 
 
-    List<Chunk> preparePdfInformation()
+    private List<Chunk> preparePdfInformation()
     {
         List<Chunk> chunkList = new ArrayList<>();
         Font h1 = FontFactory.getFont(FontFactory.COURIER,18, BaseColor.BLACK);
@@ -66,7 +61,7 @@ public class PdfCreator {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Calendar cal = Calendar.getInstance();
         chunkList.add(new Chunk("Faktura",h1));
-        chunkList.add(new Chunk("Data wystawienia: "+dateFormat.format(cal.getTime()).toString(),h2));
+        chunkList.add(new Chunk("Data wystawienia: "+ dateFormat.format(cal.getTime()),h2));
         chunkList.add(new Chunk("Nabywca: "+buyer.toPdfString(),h2));
         chunkList.add(new Chunk("Sprzedawca: "+" Najlepszy sklep internetowy w sieci sp z o.o",h2));
         chunkList.add(new Chunk(Chunk.NEWLINE));
@@ -111,9 +106,7 @@ public class PdfCreator {
                     // document.add(Chunk.NEWLINE);
                 }
                 document.close();
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            } catch (FileNotFoundException e) {
+            } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();
             }
 

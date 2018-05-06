@@ -305,7 +305,7 @@ public class CsvMenager {
             {
                 if(updated.getProductId().equals(p.getId()))
                 {
-                    System.out.printf("Zaktualizowano stan magazynowy itemu o id"+ updated.getProductId());
+                    System.out.print("Zaktualizowano stan magazynowy itemu o id" + updated.getProductId());
                     p.setAmount(p.getAmount()-updated.getAmount());
                 }
             }
