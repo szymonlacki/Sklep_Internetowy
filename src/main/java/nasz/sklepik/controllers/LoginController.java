@@ -30,6 +30,7 @@ public class LoginController {
     private User logged;
     private MenuButtonsController ctrl;
 
+    UserController reloadTableUserAfterLogin = new UserController();
 
     public void initialize() {
         loginAs.setVisible(false);
@@ -57,6 +58,7 @@ public class LoginController {
 
                 if (response.getId() == RESPONSE_ID.LOGIN_SUCCESS) {
                     logged = response.getUser();
+                    ctrl.setLogged(logged);
 
                     System.out.println("Zalogowano jako:" + " \n" + logged.toString());
                     ctrl.setLogged(logged);
@@ -69,7 +71,8 @@ public class LoginController {
                     loginAs.setTranslateY(-80);
                     loginAs.setTranslateX(-10);
                     przycisk.setTranslateY(-55);
-
+                    //Ładuje tabele danymi
+                    ctrl.showProfile();
 
                 }
                 if (response.getId() == RESPONSE_ID.LOGIN_FAILED) {
@@ -120,8 +123,8 @@ public class LoginController {
             //Ustawiam na nulla, żeby po wylogowaniu znowu kupowanie było niedostępne
             logged = null;
             ctrl.setLogged(logged);
-
-
+            //Czyszczę tabele
+            ctrl.deleteUserTable();
         }
     }
 
@@ -140,6 +143,10 @@ public class LoginController {
 
     public void setCtrl(MenuButtonsController ctrl) {
         this.ctrl = ctrl;
+    }
+
+    public User getLogged() {
+        return logged;
     }
 
 

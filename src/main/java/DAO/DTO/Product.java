@@ -5,7 +5,7 @@ import DAO.InterfaceDTO;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Product implements Serializable , InterfaceDTO{
+public class Product implements Serializable , InterfaceDTO, PDFWritable{
     private static final long serialVersionUID=7526345237642736187L;
 
     private Long id;
@@ -15,6 +15,8 @@ public class Product implements Serializable , InterfaceDTO{
     private Double price;
     private Integer amount;
     private Double vat;//standardowo 1.23 mnoznik
+    private Double averageRate;
+    private int boughtCount;
 
     public Double getVat() {
         return vat;
@@ -74,7 +76,7 @@ public class Product implements Serializable , InterfaceDTO{
 
     @Override
     public String toString() {
-        return id +","+ name +","+ description +','+type +','+price +","+amount;
+        return id +","+ name +","+ description +','+type +','+price +","+amount+","+vat;
     }
 
     @Override
@@ -94,5 +96,26 @@ public class Product implements Serializable , InterfaceDTO{
     public int hashCode() {
 
         return Objects.hash(getId(), getName(), getDescription(), getType(), getPrice(), getAmount());
+    }
+
+    public Double getAverageRate() {
+        return averageRate;
+    }
+
+    public void setAverageRate(Double averageRate) {
+        this.averageRate = averageRate;
+    }
+
+    public int getBoughtCount() {
+        return boughtCount;
+    }
+
+    public void setBoughtCount(int boughtCount) {
+        this.boughtCount = boughtCount;
+    }
+
+    @Override
+    public String toPdfString() {
+        return "Nazwa:"+ name +" Cena netto: "+ String.format("%.2fPLN", (price) / vat) +" Cena Brutto: "+price+" Stawka vat:"+ String.format("%.0f", ((vat - 1) * 100)) + "%\n";
     }
 }

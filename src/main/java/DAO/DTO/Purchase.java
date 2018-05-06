@@ -5,7 +5,7 @@ import DAO.InterfaceDTO;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Purchase implements Serializable, InterfaceDTO{
+public class Purchase implements Serializable, InterfaceDTO, PDFWritable{
     private static final long serialVersionUID=7436472215642765747L;
     private Long id;
     private Long userId;
@@ -107,5 +107,10 @@ public class Purchase implements Serializable, InterfaceDTO{
     public int hashCode() {
 
         return Objects.hash(getId(), getUserId(), getProductId(), getAmount(), getDate(), getPaid(), getRate());
+    }
+
+    @Override
+    public String toPdfString() {
+        return "Id produktu:"+id+" ilosc:" + amount +" data zakupu: "+date;
     }
 }

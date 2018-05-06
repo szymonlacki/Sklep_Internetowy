@@ -47,7 +47,7 @@ public class RegistrationController {
             Request r = new Request(REQUEST_ID.TEST_CONNECTION, "Handshake TESTClientTest");
             Request r2 = new Request(REQUEST_ID.REGISTER, "USER");
             // wysylamy pełne info o userze ( id losowe duze) - dałem pieniądze na 0, musi sobie doładować konto
-            r2.setUser(new User((long) 4, login.getText(), password.getText(), name.getText(), surname.getText(),
+            r2.setUser(new User((long) 564, login.getText(), password.getText(), name.getText(), surname.getText(),
                     city.getText(), address.getText(), 0.00));
             try {
                 Socket socket = new Socket(Protocol.serverIP, Protocol.port);

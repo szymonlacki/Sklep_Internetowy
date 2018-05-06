@@ -9,4 +9,5 @@ public enum REQUEST_ID {
     LOG_IN,
     LOG_OUT,//bedzie polegalo na zmianie w kliencie na nulla
     REGISTER,
+    ACCOUNT_TRANSFER
 }

@@ -1,6 +1,8 @@
 package DAO;
 
+import DAO.DTO.Product;
 import DAO.DTO.Purchase;
+import DAO.DTO.User;
 import communication.RESPONSE_ID;
 import communication.Request;
 import communication.Response;
@@ -37,6 +39,7 @@ public class PurchaseDAO implements InterfaceDAO {
         if(newPurchases.isEmpty()){
             return new Response(RESPONSE_ID.INSERT_FAILED,"Nie odebrano transakcji do wstawienia");
         }
+        Double transactionSum = 0.0;
         for (Purchase newP: newPurchases) {
             if(!(newP.getUserId().equals(request.getUser().getId())))//sprawdzanie czy user ktory wysyla dobrze ustawil swoje id
             {
@@ -50,12 +53,18 @@ public class PurchaseDAO implements InterfaceDAO {
             }
             csvMenager.savePurchase(newP);
         }
-        return new Response(RESPONSE_ID.INSERT_SUCCESS);
+        UserDAO userDAO = new UserDAO();
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.updateAmount(request);
+        return new Response(RESPONSE_ID.INSERT_SUCCESS,userDAO.Update(request).toString());
     }
 
     @Override
     public long FindNextID() {
-        return new Random().nextLong();
+        Random r = new Random();
+        long random = r.nextLong();
+        if(random <0) random*=-1;
+        return random;
     }
 
     @Override

@@ -5,7 +5,7 @@ import DAO.InterfaceDTO;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable, InterfaceDTO{
+public class User implements Serializable, InterfaceDTO,PDFWritable{
 
     private static final long serialVersionUID=7526472215642776147L;
 
@@ -102,7 +102,7 @@ public class User implements Serializable, InterfaceDTO{
 
     @Override
     public String toString() {
-        return id +"," + login +"," + password +"," + city +"," + address +"," + name +"," + surname +"," + account;
+        return id +"," + login +"," + password +"," +name+"," + surname +","+ city +"," + address +"," + account;
     }
 
     @Override
@@ -124,5 +124,10 @@ public class User implements Serializable, InterfaceDTO{
     public int hashCode() {
 
         return Objects.hash(getId(), getLogin(), getPassword(), getCity(), getAddress(), getName(), getSurname(), getAccount());
+    }
+
+    @Override
+    public String toPdfString() {
+        return " " +name+" " +surname +" "+ city +" " + address;
     }
 }

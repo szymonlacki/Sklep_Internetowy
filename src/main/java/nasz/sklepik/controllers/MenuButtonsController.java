@@ -21,13 +21,26 @@ public class MenuButtonsController {
 
     private LoginController loginController;
 
+    public ObservableList<Product> getRefreshProducts() {
+        return refreshProducts;
+    }
+
+    public void setRefreshProducts(ObservableList<Product> refreshProducts) {
+        this.refreshProducts = refreshProducts;
+    }
+
     private ObservableList<Product> refreshProducts = FXCollections.observableArrayList();
+
 
     private User logged;
 
+    public User getLogged() {
+        return logged;
+    }
 
     public void refresh() {
         loginController.setCtrl(this);
+        logged = loginController.getLogged();
     }
 
 
@@ -52,6 +65,7 @@ public class MenuButtonsController {
         CartController controller = loader.getController();
 
         controller.setProducts(refreshProducts);
+        controller.setMenuButtonsController(this);
         controller.setLogged(logged);
         // Odświeżam, zeby utworzyłe liste na podstawie dostarczonych
         // produktów
@@ -78,21 +92,27 @@ public class MenuButtonsController {
         ctrl.setCtrl(this);
     }
 
-    public void showNewest() {
-
-        mainController.setCenter("/fxml/Newest.fxml");
-    }
-
     public void showTop() {
 
-        mainController.setCenter("/fxml/Top.fxml");
+        TopController ctrl = (TopController) mainController.setCenter("/fxml/Top.fxml");
+        ctrl.setCtrl(this);
     }
 
     public void showProfile() {
 
         UserController ctrl = (UserController) mainController.setCenter("/fxml/UserPane.fxml");
+        if (logged != null) System.out.printf("Zalogowano jako id" + logged.getId());
         ctrl.setLogged(logged);
+        ctrl.setMenuButtonsController(this);
+        ctrl.initialize();
 
+    }
+
+
+    //Funkcja do czyszczenia danych z tabeli przy wylogowaniu sie
+    public void deleteUserTable() {
+
+        UserController ctrl = (UserController) mainController.setCenter("/fxml/UserPane.fxml");
     }
 
     public void setMainController(MainController mainController) {
@@ -105,6 +125,8 @@ public class MenuButtonsController {
 
     public void addProducts(ObservableList<Product> products) {
         Iterator<Product> iterator = products.iterator();
+
+        refreshProducts.clear();
 
         while (iterator.hasNext()) {
             this.refreshProducts.add(iterator.next());

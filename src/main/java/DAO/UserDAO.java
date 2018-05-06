@@ -58,7 +58,9 @@ public class UserDAO implements  InterfaceDAO {
     @Override
     public long FindNextID() {
         Random r = new Random();
-        return r.nextLong();
+        long random = r.nextLong();
+        if(random <0) random*=-1;
+        return random;
     }
 
     @Override
@@ -70,7 +72,6 @@ public class UserDAO implements  InterfaceDAO {
     @Override
     public Response Update(Request request) {
         CsvMenager csvMenager = new CsvMenager();
-        csvMenager.updateUser(request.getUser());
-        return new Response(RESPONSE_ID.UPDATE_SUCCESS);
+        return new Response(csvMenager.updateUser(request.getUser()));
     }
 }

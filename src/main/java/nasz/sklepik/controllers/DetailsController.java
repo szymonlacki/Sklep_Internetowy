@@ -49,7 +49,7 @@ public class DetailsController {
         Detailsprice.setEditable(false);
         Detailsmodel.setWrapText(true);
         Detailsmodel.setEditable(false);
-        File file = new File("D:\\GITHUB\\Sklep_Internetowy-master\\src\\main\\resources\\icons\\" + details.getId() + ".jpg");
+        File file = new File("src/main/resources/icons/" + details.getId() + ".jpg");
         Image image1 = new Image(file.toURI().toString());
         image.setImage(image1);
         image.setFitHeight(182);

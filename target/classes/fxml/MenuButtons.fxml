@@ -11,20 +11,15 @@
    <children>
       <VBox spacing="10.0">
          <children>
-            <ToggleButton mnemonicParsing="false" onAction="#showAgd" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="AGD">
+            <ToggleButton mnemonicParsing="false" onAction="#showAgd" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="AGD">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleButtons" />
                </toggleGroup></ToggleButton>
-            <ToggleButton mnemonicParsing="false" onAction="#showWear" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="WEAR" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showMobiles" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="MOBILES" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showNewest" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="NEWEST" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showTop" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="TOP" toggleGroup="$toggleButtons" />
-            <ToggleButton mnemonicParsing="false" onAction="#showCart" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="KOSZYK">
-               <toggleGroup>
-                  <ToggleGroup fx:id="toggleButtons1" />
-               </toggleGroup>
-            </ToggleButton>
-            <ToggleButton mnemonicParsing="false" onAction="#showProfile" prefHeight="50.0" prefWidth="150.0" styleClass="leftButtons" text="MÓJ PROFIL">
+            <ToggleButton mnemonicParsing="false" onAction="#showWear" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="WEAR" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showMobiles" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="MOBILES" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showTop" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="TOP " toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showCart" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="KOSZYK" toggleGroup="$toggleButtons" />
+            <ToggleButton mnemonicParsing="false" onAction="#showProfile" prefHeight="90.0" prefWidth="150.0" styleClass="leftButtons" text="MÓJ PROFIL">
                <toggleGroup>
                   <ToggleGroup fx:id="toggleButtons11" />
                </toggleGroup>

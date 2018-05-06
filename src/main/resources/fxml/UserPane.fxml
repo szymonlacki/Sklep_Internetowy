@@ -2,22 +2,23 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="600.0" style="-fx-background-color: #DB8C39;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.UserController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="650.0" style="-fx-background-color: #DB8C39;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.UserController">
    <children>
       <Line endX="90.0" layoutX="504.0" layoutY="38.0" startX="-100.0" />
       <Line endX="60.0" layoutX="136.0" layoutY="38.0" startX="-130.0" />
-      <Button fx:id="editButton" layoutX="483.0" layoutY="367.0" mnemonicParsing="false" onAction="#edit" prefHeight="32.0" prefWidth="103.0" text="Edycja danych" />
+      <Button fx:id="editButton" layoutX="499.0" layoutY="367.0" mnemonicParsing="false" onAction="#edit" prefHeight="32.0" prefWidth="103.0" style="-fx-cursor: hand;" text="Dane" />
       <TextField fx:id="name" layoutX="133.0" layoutY="101.0" prefHeight="32.0" prefWidth="149.0" />
       <TextField fx:id="surname" layoutX="320.0" layoutY="101.0" prefHeight="32.0" prefWidth="149.0" />
       <TextField fx:id="login" layoutX="320.0" layoutY="233.0" prefHeight="32.0" prefWidth="149.0" />
-      <TextField fx:id="password" layoutX="320.0" layoutY="289.0" prefHeight="32.0" prefWidth="149.0" />
       <TextField fx:id="city" layoutX="133.0" layoutY="169.0" prefHeight="32.0" prefWidth="149.0" />
       <TextField fx:id="address" layoutX="320.0" layoutY="169.0" prefHeight="32.0" prefWidth="149.0" />
       <Label fx:id="nameTop" layoutX="133.0" layoutY="84.0" text="Imie" />
@@ -26,20 +27,45 @@
       <Label fx:id="addressTop" layoutX="320.0" layoutY="152.0" text="Adres" />
       <Label fx:id="loginTop" layoutX="320.0" layoutY="216.0" text="Login" />
       <Label fx:id="passwordTop" layoutX="320.0" layoutY="272.0" text="Hasło" />
-      <Button fx:id="saveEdditedDataButton" layoutX="133.0" layoutY="227.0" mnemonicParsing="false" onAction="#save" prefHeight="90.0" prefWidth="149.0" style="-fx-background-color: green;" text="Zapisz" />
+      <Button fx:id="saveEdditedDataButton" layoutX="133.0" layoutY="227.0" mnemonicParsing="false" onAction="#save" prefHeight="90.0" prefWidth="149.0" style="-fx-background-color: green; -fx-cursor: hand;" text="Zapisz" />
       <Label fx:id="transactions" layoutX="201.0" layoutY="19.0" text="Moje Transakcje">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TableView fx:id="userTable" layoutX="72.0" layoutY="77.0" prefHeight="263.0" prefWidth="474.0">
+      <Button fx:id="rateButton" layoutX="413.0" layoutY="367.0" mnemonicParsing="false" onAction="#rate" prefHeight="32.0" prefWidth="62.0" style="-fx-cursor: hand;" text="Oceń" />
+      <PasswordField fx:id="password" layoutX="320.0" layoutY="289.0" prefHeight="32.0" prefWidth="149.0" />
+      <TableView fx:id="userTable" layoutX="67.0" layoutY="70.0" prefHeight="263.0" prefWidth="516.0">
          <columns>
             <TableColumn fx:id="userId" text="Użytkownik" />
             <TableColumn fx:id="productId" prefWidth="98.0" text="Produkt" />
-            <TableColumn fx:id="date" prefWidth="98.0" text="Data" />
-            <TableColumn fx:id="paid" prefWidth="100.0" text="Status" />
+            <TableColumn fx:id="date" prefWidth="98.0" sortType="DESCENDING" text="Data" />
+            <TableColumn fx:id="paid" prefWidth="100.0" text="Opłacono" />
             <TableColumn fx:id="rate" prefWidth="97.0" text="Ocena" />
          </columns>
       </TableView>
+      <TextField fx:id="rateText" alignment="CENTER" layoutX="322.0" layoutY="367.0" prefHeight="32.0" prefWidth="86.0" promptText="1-5">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Text fx:id="accountBallanceText" layoutX="133.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stan konta:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="accountBallance" fill="#134d01" layoutX="238.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="rechargeAccount" layoutX="413.0" layoutY="367.0" mnemonicParsing="false" onAction="#accountTransfer" prefHeight="32.0" prefWidth="80.0" style="-fx-cursor: hand;" text="Doładuj" />
+      <TextField fx:id="refillText" alignment="CENTER" layoutX="322.0" layoutY="367.0" prefHeight="32.0" prefWidth="86.0" promptText="0.00">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="editedButton" layoutX="133.0" layoutY="227.0" mnemonicParsing="false" onAction="#enableEdit" prefHeight="90.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-cursor: hand;" text="Edycja" />
+      <Button fx:id="invoiceButton" layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#invoiceButtonClicked" prefHeight="25.0" prefWidth="103.0" text="Generuj fakture" />
    </children>
 </Pane>

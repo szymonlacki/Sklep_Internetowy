@@ -37,4 +37,10 @@ public class ProductDAO implements InterfaceDAO {
     public Response Update(Request request) {
         return null;
     }
+
+    public  Response updateAmount(Request request)
+    {
+        CsvMenager csvMenager = new CsvMenager();
+        return new Response(csvMenager.updateProductAmount(request.getPurchasesList()));
+    }
 }

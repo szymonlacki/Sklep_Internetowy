@@ -125,6 +125,15 @@ public class ClientListener extends Thread {
                             in.close();
                             out.close();
                             break;
+                        case UPDATE://wysyłamy w requescie pełne informacje o userze który ma robic update
+                            gui.write("Odebrano polaczenie (UPDATE) od  klienta");
+                            dao = DAOFactory.getDAO(request.getSql());
+                            response= dao.Update(request);
+                            gui.write("Wysylam "+response.getId().toString());
+                            out.writeObject(response);// otrzymujemy fail lub success
+                            in.close();
+                            out.close();
+                            break;
                     }
 
                 }

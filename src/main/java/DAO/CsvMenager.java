@@ -155,25 +155,36 @@ public class CsvMenager {
         String[] userData;
         RESPONSE_ID responseId=RESPONSE_ID.UPDATE_FAILED;
         try (BufferedReader br = new BufferedReader(new FileReader(plikUserCSV))) {
-            String plikUserCSVCreate= "src/baza/users2.csv";
-            BufferedWriter bw = new BufferedWriter(new FileWriter(plikUserCSVCreate));
+            String plikUserCSVCreate= "baza/users2.csv";
+            File newFile = new File(plikUserCSVCreate);
+            boolean isCreated = newFile.createNewFile();
+            if(isCreated){
+            BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
             while ((odczytanaLinia = br.readLine()) != null) {
                 // podzia� odczytanej linii z pliku z zastosowaniem znaku podzialu
                 userData = odczytanaLinia.split(znakPodzialu);
                 // utworzenie obiektu na podstawie odczytanych danych
                 User user = new User();
-                user.setId(Long.getLong(userData[0]));
+                user.setId(Long.parseLong(userData[0]));
                 user.setLogin(userData[1]);
                 user.setPassword(userData[2]);
                 user.setName(userData[3]);
                 user.setSurname(userData[4]);
                 user.setCity((userData[5]));
                 user.setAddress(userData[6]);
-                user.setAccount(Double.valueOf(userData[7]));
+                user.setAccount(Double.parseDouble(userData[7]));
+                System.out.println("Analizuje id "+ user.getId());
                 if(user.getId().equals(updatedUser.getId()))
                 {
+                    System.out.println("Znaleziono ! update userid=" + user.getId());
+                    if(user.getLogin().equals(updatedUser.getLogin())&& user.getPassword().equals(updatedUser.getPassword())){
                     user = updatedUser;
                     responseId = RESPONSE_ID.UPDATE_SUCCESS;
+                    }
+                    else {
+                        System.out.println("Blad autoryzacji!");
+                        responseId = RESPONSE_ID.UPDATE_FAILED;
+                    }
                 }
                 // zapis pojedynczego obiektu do pliku
                 bw.write(user.toString());
@@ -187,7 +198,8 @@ public class CsvMenager {
             Files.delete(Paths.get(plikUserCSV));
             Path source = Paths.get(plikUserCSVCreate);
             Files.move(source,source.resolveSibling("users.csv"));
-            return responseId;
+            Files.delete(Paths.get(plikUserCSVCreate));
+            return responseId;}
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -199,50 +211,117 @@ public class CsvMenager {
         String[] purchaseData;
         RESPONSE_ID responseId = RESPONSE_ID.UPDATE_FAILED;
         try (BufferedReader br = new BufferedReader(new FileReader(plikPurchaseCSV))) {
-            String plikPurchaseCSVCreate= "src/baza/purchases2.csv";
-            BufferedWriter bw = new BufferedWriter(new FileWriter(plikPurchaseCSVCreate));
-            while ((odczytanaLinia = br.readLine()) != null) {
-                // podzia� odczytanej linii z pliku z zastosowaniem znaku podzialu
-                purchaseData = odczytanaLinia.split(znakPodzialu);
-                // utworzenie obiektu na podstawie odczytanych danych
-                Purchase purchase = new Purchase();
-                purchase.setId(Long.getLong(purchaseData[0]));
-                purchase.setUserId(Long.getLong(purchaseData[1]));
-                purchase.setProductId(Long.getLong(purchaseData[2]));
-                purchase.setAmount(Integer.getInteger(purchaseData[3]));
-                purchase.setDate(purchaseData[4]);
-                purchase.setPaid(Boolean.getBoolean(purchaseData[5]));
-                purchase.setRate(Integer.getInteger(purchaseData[6]));
-                if(purchase.getId().equals(updatedPurchase.getId()))
-                {
-                    purchase = updatedPurchase;
-                    responseId = RESPONSE_ID.UPDATE_SUCCESS;
+            String plikPurchaseCSVCreate= "baza/purchases2.csv";
+            File newFile = new File(plikPurchaseCSVCreate);
+            boolean isCreated = newFile.createNewFile();
+            if(isCreated) {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(plikPurchaseCSVCreate));
+                while ((odczytanaLinia = br.readLine()) != null) {
+                    // podzia� odczytanej linii z pliku z zastosowaniem znaku podzialu
+                    purchaseData = odczytanaLinia.split(znakPodzialu);
+                    // utworzenie obiektu na podstawie odczytanych danych
+                    Purchase purchase = new Purchase();
+                    purchase.setId(Long.parseLong(purchaseData[0]));
+                    purchase.setUserId(Long.parseLong(purchaseData[1]));
+                    purchase.setProductId(Long.parseLong(purchaseData[2]));
+                    purchase.setAmount(Integer.parseInt(purchaseData[3]));
+                    purchase.setDate(purchaseData[4]);
+                    purchase.setPaid(Boolean.parseBoolean(purchaseData[5]));
+                    purchase.setRate(Integer.parseInt(purchaseData[6]));
+                    if (purchase.getId().equals(updatedPurchase.getId())) {
+                        purchase = updatedPurchase;
+                        responseId = RESPONSE_ID.UPDATE_SUCCESS;
+                    }
+                    // zapis pojedynczego obiektu do pliku
+                    bw.write(purchase.toString());
+                    // przej�cie do nowej linii
+                    bw.newLine();
+
                 }
-                // zapis pojedynczego obiektu do pliku
-                bw.write(purchase.toString());
-                // przej�cie do nowej linii
-                bw.newLine();
+                // zamkni�cie strumienia odczytuj�cego
+                br.close();
+                // zamkni�cie strumienia piszacego
+                bw.close();
+                Files.delete(Paths.get(plikPurchaseCSV));
+                Path source = Paths.get(plikPurchaseCSVCreate);
+                Files.move(source, source.resolveSibling("purchases.csv"));
+                return responseId;
             }
-            // zamkni�cie strumienia odczytuj�cego
-            br.close();
-            // zamkni�cie strumienia piszacego
-            bw.close();
-            Files.delete(Paths.get(plikPurchaseCSV));
-            Path source = Paths.get(plikPurchaseCSVCreate);
-            Files.move(source,source.resolveSibling("purchases.csv"));
-            return responseId;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return  responseId;
     }
 
-    public RESPONSE_ID deleteUser(User deletedUser){
+
+    public RESPONSE_ID updateProduct(List<Product> updatedProductList){
+        List<Product> products = ReadAllProducts();
+        for (Product p: products)
+        {
+            for (Product updated:updatedProductList)
+            {
+                if(updated.getId().equals(p.getId()))
+                {
+                    p=updated;
+                }
+            }
+        }
+        updateProductCsvFile(products);
+        return RESPONSE_ID.UPDATE_SUCCESS;
+    }
+
+    private void updateProductCsvFile(List<Product> products) {
+        try{
+            String plikProductCSVCreate= "baza/products2.csv";
+            File newFile = new File(plikProductCSVCreate);
+            boolean isCreated = newFile.createNewFile();
+            if(isCreated){
+                BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
+                for (Product p:products
+                     ) {
+                    // zapis pojedynczego obiektu do pliku
+                    bw.write(p.toString());
+                    // przej�cie do nowej linii
+                    bw.newLine();
+                }
+                // zamkni�cie strumienia piszacego
+                bw.close();
+                Files.delete(Paths.get(plikProductCSV));
+                Path source = Paths.get(plikProductCSVCreate);
+                Files.move(source,source.resolveSibling("products.csv"));
+                Files.delete(Paths.get(plikProductCSVCreate));
+            }
+    } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public RESPONSE_ID updateProductAmount(List<Purchase> purchaseList){
+        List<Product> products = ReadAllProducts();
+        for (Product p: products)
+        {
+            for (Purchase updated:purchaseList)
+            {
+                if(updated.getProductId().equals(p.getId()))
+                {
+                    System.out.printf("Zaktualizowano stan magazynowy itemu o id"+ updated.getProductId());
+                    p.setAmount(p.getAmount()-updated.getAmount());
+                }
+            }
+        }
+        updateProductCsvFile(products);
+        return RESPONSE_ID.UPDATE_SUCCESS;
+    }
+
+
+
+        public RESPONSE_ID deleteUser(User deletedUser){
 
         String[] userData;
         RESPONSE_ID responseId= RESPONSE_ID.DELETE_FAILED;
         try (BufferedReader br = new BufferedReader(new FileReader(plikUserCSV))) {
-            String plikUserCSVCreate= "src/baza/users2.csv";
+            String plikUserCSVCreate= "baza/users2.csv";
             BufferedWriter bw = new BufferedWriter(new FileWriter(plikUserCSVCreate));
             while ((odczytanaLinia = br.readLine()) != null) {
                 // podzia� odczytanej linii z pliku z zastosowaniem znaku podzialu
@@ -286,7 +365,7 @@ public class CsvMenager {
         String[] purchaseData;
         RESPONSE_ID response_id=RESPONSE_ID.DELETE_FAILED;
         try (BufferedReader br = new BufferedReader(new FileReader(plikPurchaseCSV))) {
-            String plikPurchaseCSVCreate= "src/baza/purchases2.csv";
+            String plikPurchaseCSVCreate= "baza/purchases2.csv";
             BufferedWriter bw = new BufferedWriter(new FileWriter(plikPurchaseCSVCreate));
             while ((odczytanaLinia = br.readLine()) != null) {
                 // podzia� odczytanej linii z pliku z zastosowaniem znaku podzialu
