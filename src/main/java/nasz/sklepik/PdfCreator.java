@@ -5,6 +5,7 @@ import DAO.DTO.Purchase;
 import DAO.DTO.User;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import communication.Protocol;
 import communication.REQUEST_ID;
 import communication.Request;
@@ -51,9 +52,10 @@ public class PdfCreator {
     private List<Chunk> preparePdfInformation()
     {
         List<Chunk> chunkList = new ArrayList<>();
-        Font h1 = FontFactory.getFont(FontFactory.COURIER,18, BaseColor.BLACK);
-        Font h2 = FontFactory.getFont(FontFactory.COURIER,12, BaseColor.BLACK);
-        Font h3 = FontFactory.getFont(FontFactory.COURIER,8, BaseColor.BLACK);
+        Font h1 = FontFactory.getFont(FontFactory.COURIER,20, BaseColor.BLACK);
+        h1.setStyle(Font.UNDERLINE);
+        Font h2 = FontFactory.getFont(FontFactory.COURIER,16, BaseColor.BLACK);
+        Font h3 = FontFactory.getFont(FontFactory.COURIER,12, BaseColor.BLACK);
 
         Double sumNetto = 0.00;
         Double sumBrutto = 0.00;
@@ -61,10 +63,12 @@ public class PdfCreator {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Calendar cal = Calendar.getInstance();
         chunkList.add(new Chunk("Faktura",h1));
-        chunkList.add(new Chunk("Data wystawienia: "+ dateFormat.format(cal.getTime()),h2));
-        chunkList.add(new Chunk("Nabywca: "+buyer.toPdfString(),h2));
-        chunkList.add(new Chunk("Sprzedawca: "+" Najlepszy sklep internetowy w sieci sp z o.o",h2));
+        chunkList.add(new Chunk("Data wystawienia: "+ dateFormat.format(cal.getTime()),h3));
+        chunkList.add(new Chunk("Nabywca:\n"+buyer.toPdfString()+"\n",h2));
+        chunkList.add(new Chunk("Sprzedawca:\n"+"Najlepszy sklep internetowy w sieci sp z o.o",h2));
+        LineSeparator ls = new LineSeparator();
         chunkList.add(new Chunk(Chunk.NEWLINE));
+        chunkList.add(new Chunk(ls));
         //dodawanie produktów do transakcji
         int i=1;
         for (Purchase purchase:purchaseList
@@ -80,7 +84,10 @@ public class PdfCreator {
                  }
             }
         }
-        chunkList.add(new Chunk("Razem : Suma netto: "+ String.format("%.2fPLN", sumNetto) + " Suma Brutto:"+String.format("%.2fPLN", sumBrutto),h2));
+
+
+        chunkList.add(new Chunk(ls));
+        chunkList.add(new Chunk("Razem\nSuma netto: "+ String.format("%.2fPLN", sumNetto) +"\nSuma Vat:"+String.format("%.2fPLN", sumBrutto- sumNetto) + "\nSuma Brutto:"+String.format("%.2fPLN", sumBrutto),h2));
 
 
         return chunkList;
@@ -101,10 +108,21 @@ public class PdfCreator {
                 List<Chunk> chunkList = preparePdfInformation();
                 for (Chunk ch : chunkList
                         ) {
-                    //document.add(ch);
+                    if(ch.equals(chunkList.get(0))){
+                        Paragraph p = new Paragraph(ch);
+                        p.setAlignment(Element.ALIGN_CENTER);
+                        document.add(p);
+                        continue;
+                    }
+                    if(ch.equals(chunkList.get(2))|| ch.equals(chunkList.get(3))){
+                        Paragraph p = new Paragraph(ch);
+                        p.setAlignment(Element.ALIGN_RIGHT);
+                        document.add(p);
+                        continue;
+                    }
                     document.add(new Paragraph(ch));
-                    // document.add(Chunk.NEWLINE);
                 }
+
                 document.close();
             } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();

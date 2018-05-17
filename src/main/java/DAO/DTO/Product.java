@@ -116,6 +116,6 @@ public class Product implements Serializable , InterfaceDTO, PDFWritable{
 
     @Override
     public String toPdfString() {
-        return "Nazwa:"+ name +" Cena netto: "+ String.format("%.2fPLN", (price) / vat) +" Cena Brutto: "+price+" Stawka vat:"+ String.format("%.0f", ((vat - 1) * 100)) + "%\n";
+        return "Nazwa:"+ name +"\n Cena netto: "+ String.format("%.2fPLN", (price) / vat) +" Cena Brutto: "+price+" Stawka vat:"+ String.format("%.0f", ((vat - 1) * 100)) + "%\nId produktu:"+id;
     }
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="650.0" style="-fx-background-color: #DB8C39;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.UserController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="650.0" style="-fx-background-color: #DB8C39;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.UserController">
    <children>
       <Line endX="90.0" layoutX="504.0" layoutY="38.0" startX="-100.0" />
       <Line endX="60.0" layoutX="136.0" layoutY="38.0" startX="-130.0" />
@@ -35,10 +35,10 @@
       </Label>
       <Button fx:id="rateButton" layoutX="413.0" layoutY="367.0" mnemonicParsing="false" onAction="#rate" prefHeight="32.0" prefWidth="62.0" style="-fx-cursor: hand;" text="Oceń" />
       <PasswordField fx:id="password" layoutX="320.0" layoutY="289.0" prefHeight="32.0" prefWidth="149.0" />
-      <TableView fx:id="userTable" layoutX="67.0" layoutY="70.0" prefHeight="263.0" prefWidth="516.0">
+      <TableView fx:id="userTable" layoutX="67.0" layoutY="70.0" prefHeight="290.0" prefWidth="551.0">
          <columns>
-            <TableColumn fx:id="userId" text="Użytkownik" />
-            <TableColumn fx:id="productId" prefWidth="98.0" text="Produkt" />
+            <TableColumn fx:id="userId" text="Nazwa produktu" />
+            <TableColumn fx:id="productId" prefWidth="98.0" text="ID Produktu" />
             <TableColumn fx:id="date" prefWidth="98.0" sortType="DESCENDING" text="Data" />
             <TableColumn fx:id="paid" prefWidth="100.0" text="Opłacono" />
             <TableColumn fx:id="rate" prefWidth="97.0" text="Ocena" />
@@ -66,6 +66,17 @@
          </font>
       </TextField>
       <Button fx:id="editedButton" layoutX="133.0" layoutY="227.0" mnemonicParsing="false" onAction="#enableEdit" prefHeight="90.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-cursor: hand;" text="Edycja" />
-      <Button fx:id="invoiceButton" layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#invoiceButtonClicked" prefHeight="25.0" prefWidth="103.0" text="Generuj fakture" />
+      <Button fx:id="invoiceButton" layoutX="176.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#invoiceButtonClicked" prefHeight="32.0" prefWidth="135.0" text="Generuj fakture" />
+      <Text layoutX="456.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CTRL+LPM ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text layoutX="456.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CTRL+A ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="506.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- zaznacz wszystko" />
+      <Text layoutX="518.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" - wybierz" />
    </children>
 </Pane>

@@ -3,23 +3,71 @@ package nasz.sklepik.controllers;
 import DAO.DTO.Product;
 import DAO.DTO.Purchase;
 import DAO.DTO.User;
-import com.itextpdf.text.pdf.PdfWriter;
 import communication.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import nasz.sklepik.Main;
 import nasz.sklepik.PdfCreator;
-
+import javafx.util.Callback;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
+import javafx.application.Application;
 
+import javafx.scene.Group;
+
+import javafx.scene.Scene;
+
+import javafx.stage.Stage;
+
+import javafx.beans.property.BooleanProperty;
+
+import javafx.beans.property.SimpleBooleanProperty;
+
+import javafx.beans.property.StringProperty;
+
+import javafx.beans.property.SimpleStringProperty;
+
+import javafx.beans.value.ChangeListener;
+
+import javafx.beans.value.ObservableValue;
+
+import javafx.collections.FXCollections;
+
+import javafx.collections.ObservableList;
+
+import javafx.event.EventHandler;
+
+import javafx.geometry.Pos;
+
+import javafx.scene.control.CheckBox;
+
+import javafx.scene.control.TableCell;
+
+import javafx.scene.control.TableColumn;
+
+import javafx.scene.control.TableColumn.CellEditEvent;
+
+import javafx.scene.control.TableView;
+
+import javafx.scene.control.TextField;
+
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.scene.input.KeyCode;
+
+import javafx.scene.input.KeyEvent;
+
+import javafx.util.Callback;
 /**
  * Created by Szymon on 20.04.2018.
  */
@@ -63,6 +111,8 @@ public class UserController {
     @FXML
     private TableColumn<Purchase, String> productId;
     @FXML
+    private TableColumn<Purchase, CheckBox> selectCol;
+    @FXML
     private TableColumn<Purchase, String> date;
     @FXML
     private TableColumn<Purchase, String> paid;
@@ -85,24 +135,39 @@ public class UserController {
 
     @FXML
     private Button invoiceButton;
-
     private List<Purchase> MyTransactions;
     private User logged;
+
+
     @FXML
-    public void invoiceButtonClicked()
-    {
-        PdfCreator pdfCreator= new PdfCreator(MyTransactions,logged);
-        pdfCreator.createInvoice();
+    public void invoiceButtonClicked() {
+
+        ObservableList<Purchase> selectedItems = userTable.getSelectionModel().getSelectedItems();
+        if (userTable.getSelectionModel().getSelectedItem() == null) {
+            Alert alert2 = new Alert(Alert.AlertType.INFORMATION, "Nie wybrano przedmiotu do faktury!");
+            alert2.showAndWait();
+            //Jeśli zaznaczony to wchodze w dalsze pętle  i zapisuje zaznaczony wiersz tabeli w toRate
+        } else if (userTable.getSelectionModel().getSelectedItem() != null) {
+
+            List<Purchase> purchaseListPdf =  new ArrayList<Purchase>();
+            for (Purchase row : selectedItems) {
+                purchaseListPdf.add(row);
+            }
+            PdfCreator pdfCreator = new PdfCreator(purchaseListPdf, logged);
+            pdfCreator.createInvoice();
+        }
     }
 
-    Purchase toRate = new Purchase();
 
+    Purchase toRate = new Purchase();
 
 
     MenuButtonsController ctrl = new MenuButtonsController();
 
     public void initialize() {
 
+
+        // userTable.getColumns().add(select);
         name.setVisible(false);
         surname.setVisible(false);
         city.setVisible(false);
@@ -124,6 +189,7 @@ public class UserController {
         transactions.setText("Moje transakcje");
         invoiceButton.setVisible(true);
 
+
         if (logged != null) System.out.printf("Zalogowano jako id" + logged.getId());
 
         Request r = new Request(REQUEST_ID.TEST_CONNECTION, "Handshake TESTClientTest");
@@ -138,9 +204,9 @@ public class UserController {
             //Czytam wszystkie transakcje
             List<Purchase> transactionList = (List<Purchase>) response.getList();
             List<Purchase> myTransactions = new ArrayList<>(); // lista transakcji usera
-            MyTransactions=myTransactions;
+            MyTransactions = myTransactions;
             if (logged != null) {
-
+                invoiceButton.setDisable(false);
                 accountBallance.setText(String.valueOf(logged.getAccount()));
                 for (Purchase t : transactionList
                         ) {
@@ -153,12 +219,27 @@ public class UserController {
 
                 myTransactions.sort(Comparator.comparing(Purchase::getDate).reversed());
 
+                List<Product> allProducts = downloadProducts();
+                for (Purchase p:myTransactions
+                        ) {
+                    for (Product product: allProducts
+                            ) {
+                        if(p.getProductId().equals(product.getId()))
+                        {p.setProductName(product.getName());
+                            break;
+                        }
+
+                    }
+
+                }
+
                 ObservableList<Purchase> allPurchases = (ObservableList) FXCollections.observableArrayList(myTransactions);
+
 
                 userTable.itemsProperty().setValue(allPurchases);
                 //Wyświetlam
                 userId.setCellValueFactory(
-                        new PropertyValueFactory<Purchase, String>("userId")
+                        new PropertyValueFactory<Purchase, String>("productName")
                 );
                 productId.setCellValueFactory(
                         new PropertyValueFactory<Purchase, String>("productId")
@@ -172,8 +253,14 @@ public class UserController {
                 rate.setCellValueFactory(
                         new PropertyValueFactory<Purchase, String>("rate")
                 );
+
+
+                //Ustawiam, żeby zaznaczało się więcej niż 1 wiersz
+                userTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
             } else {
                 System.out.println("Nie zalogowano!");
+                invoiceButton.setDisable(true);
             }
             socket.close();
         } catch (Exception e) {
@@ -183,7 +270,6 @@ public class UserController {
 
 
     }
-
 
     public void edit() {
 
@@ -409,28 +495,45 @@ public class UserController {
 
     public void accountTransfer() {
 
-        double refill = Double.parseDouble(refillText.getText());
-        System.out.println(refill);// o ile chcemy zwiekszyc konto
-
-        logged.setAccount(logged.getAccount() + refill);
-        //wysylamy requesty
-        Request r = new Request(REQUEST_ID.TEST_CONNECTION, "Handshake TESTClientTest");
-        Request r2 = new Request(REQUEST_ID.UPDATE, "USER");
-        r2.setUser(logged); // wrzucamy usera do requesta
         try {
-            Socket socket = new Socket(Protocol.serverIP, Protocol.port);
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-            out.writeObject(r);
-            out.writeObject(r2);
-            Response response = (Response) in.readObject(); // otrzymujemy  info success lub failed
-            if (response.getId() == RESPONSE_ID.UPDATE_SUCCESS) {
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION, "Doładowano pomyślnie!");
+            if (refillText.getText().equals("")) {
+                Alert alert2 = new Alert(Alert.AlertType.INFORMATION, "Podano puste pole!");
                 alert2.showAndWait();
-            } else if (response.getId() == RESPONSE_ID.UPDATE_FAILED) {
-                System.out.println("Nie udalo sie dodac sumy do konta: " + response.getMessage());
+            } else {
+                if (Integer.valueOf(refillText.getText()) <= 0) {
+
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION, "Podano ujemną kwotę!");
+                    alert2.showAndWait();
+                } else {
+                    double refill = Double.parseDouble(refillText.getText());
+                    System.out.println(refill);// o ile chcemy zwiekszyc konto
+                    double newAccountBalance = logged.getAccount() + refill;
+                    logged.setAccount(newAccountBalance);
+                    //wysylamy requesty
+                    Request r = new Request(REQUEST_ID.TEST_CONNECTION, "Handshake TESTClientTest");
+                    Request r2 = new Request(REQUEST_ID.UPDATE, "USER");
+                    r2.setUser(logged); // wrzucamy usera do requesta
+                    Socket socket = new Socket(Protocol.serverIP, Protocol.port);
+                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out.writeObject(r);
+                    out.writeObject(r2);
+                    Response response = (Response) in.readObject(); // otrzymujemy  info success lub failed
+
+                    if (response.getId() == RESPONSE_ID.UPDATE_SUCCESS) {
+                        Alert alert2 = new Alert(Alert.AlertType.INFORMATION, "Doładowano pomyślnie!");
+                        alert2.showAndWait();
+                        this.accountBallance.setText(String.valueOf(newAccountBalance));
+                    } else if (response.getId() == RESPONSE_ID.UPDATE_FAILED) {
+                        System.out.println("Nie udalo sie dodac sumy do konta: " + response.getMessage());
+                    }
+                    socket.close();
+
+                }
             }
-            socket.close();
+
+
+
         } catch (Exception e) {
             System.out.println("Brak polaczenia z serverem!");
         }
@@ -447,6 +550,27 @@ public class UserController {
 
     public void setMenuButtonsController(MenuButtonsController menuButtonsController) {
         this.menuButtonsController = menuButtonsController;
+    }
+
+
+    public List<Product> downloadProducts() {
+        Request r = new Request(REQUEST_ID.TEST_CONNECTION, "Handshake TESTClientTest");
+        Request r2 = new Request(REQUEST_ID.SELECT, "PRODUCT");
+        try {
+            Socket socket = new Socket(Protocol.serverIP, Protocol.port);
+            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            out.writeObject(r);
+            out.writeObject(r2);
+            Response response = (Response) in.readObject();
+            System.out.println("Otrzymano:" + " \n" + response.getList().toString());
+            socket.close();
+            return (List<Product>) response.getList();
+        } catch (Exception e) {
+            System.out.println("Brak polaczenia z serverem!");
+            // e.printStackTrace();
+        }
+        return null;
     }
 
 }

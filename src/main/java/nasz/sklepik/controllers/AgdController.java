@@ -54,6 +54,7 @@ public class AgdController implements Initializable {
     private ObservableList<Product> addedProducts = FXCollections.observableArrayList();
 
     Product product = new Product();
+
     Product details = new Product();
 
     DetailsController detailsController;

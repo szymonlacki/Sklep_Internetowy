@@ -46,13 +46,15 @@ public class Main extends Application {
         //downloadPurchases();
         // ratePurchase();
         // accountTransfer();
-
+        primaryStage.setResizable(false);
         calculateRateForEachProduct();//trzeba wywolac jesli chcesz wyswietlac oceny produktow
 
 
 
 
     }
+
+
 
     private void calculateRateForEachProduct() {
         List<Product> productList = downloadProducts();

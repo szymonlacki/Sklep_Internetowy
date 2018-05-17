@@ -10,6 +10,10 @@ public class Purchase implements Serializable, InterfaceDTO, PDFWritable{
     private Long id;
     private Long userId;
     private Long productId;
+
+
+
+    private String productName;
     private Integer amount;// ilosc
     private String date;// data zakupu
     private Boolean paid;// czy zaplacone
@@ -25,9 +29,18 @@ public class Purchase implements Serializable, InterfaceDTO, PDFWritable{
         this.rate = rate;
     }
 
+
     public Purchase() {
     }
 
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
     public Long getId() {
         return id;
     }
@@ -111,6 +124,6 @@ public class Purchase implements Serializable, InterfaceDTO, PDFWritable{
 
     @Override
     public String toPdfString() {
-        return "Id produktu:"+id+" ilosc:" + amount +" data zakupu: "+date;
+        return " ilosc:" + amount +" data zakupu: "+date;
     }
 }

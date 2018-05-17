@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="677.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.TopController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="677.0" spacing="10.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nasz.sklepik.controllers.TopController">
    <children>
-      <HBox prefHeight="85.0" prefWidth="678.0">
+      <HBox prefHeight="30.0" prefWidth="678.0">
          <children>
-            <Button fx:id="mostBoughtButton" mnemonicParsing="false" onAction="#showMostBought" prefHeight="57.0" prefWidth="126.0" style="-fx-cursor: hand;" text="Najczęściej kupowane" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="mostBoughtButton" mnemonicParsing="false" onAction="#showMostBought" prefHeight="26.0" prefWidth="221.0" style="-fx-cursor: hand;" text="Najczęściej kupowane" textAlignment="CENTER" wrapText="true">
                <HBox.margin>
-                  <Insets left="210.0" top="30.0" />
+                  <Insets left="130.0" top="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="topRatedButton" mnemonicParsing="false" onAction="#showTopRated" prefHeight="57.0" prefWidth="126.0" style="-fx-cursor: hand;" text="Najlepiej oceniane" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="topRatedButton" mnemonicParsing="false" onAction="#showTopRated" prefHeight="26.0" prefWidth="221.0" style="-fx-cursor: hand;" text="Najlepiej oceniane" textAlignment="CENTER" wrapText="true">
                <HBox.margin>
                   <Insets top="30.0" />
                </HBox.margin>

@@ -126,12 +126,13 @@ public class MenuButtonsController {
     public void addProducts(ObservableList<Product> products) {
         Iterator<Product> iterator = products.iterator();
 
-        refreshProducts.clear();
+        refreshProducts.removeAll();
 
         while (iterator.hasNext()) {
             this.refreshProducts.add(iterator.next());
         }
     }
+
 
     public void setLogged(User logged) {
         this.logged = logged;

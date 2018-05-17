@@ -26,7 +26,7 @@ public class MainController {
         loginController = (LoginController) setTop();
         menuButtonsController.setLoginController(loginController);
         menuButtonsController.refresh();
-
+        
     }
 
     public Object setCenter(String fxmlPath) {
