@@ -8,7 +8,7 @@ Cały projekt bazuje na komunikacji z serwerem – request i response.
  
 ##	 Transfer danych
 
-W projekcie użyto DTO, czyli Data Transfer Object. Jest wzorcem projektowym należącym do grupy wzorców dystrybucji. Podstawowym zadaniem DTO jest transfer danych pomiędzy systemami, aplikacjami lub też w ramach aplikacji pomiędzy warstwami aplikacji. Rys. 3, 4 i 5 kolejno obrazują kod 3 klas : „Product”, „Purchase” oraz „User”.
+W projekcie użyto DTO, czyli Data Transfer Object. Jest wzorcem projektowym należącym do grupy wzorców dystrybucji. Podstawowym zadaniem DTO jest transfer danych pomiędzy systemami, aplikacjami lub też w ramach aplikacji pomiędzy warstwami aplikacji. Należy wspomnieć o 3 głównych klasach: "Purchase", "Product" oraz "User".
 Klasy te posiadają pola je identyfikujące. Jednak najważniejszym polem, które jest unikalne dla każdej z nich, jest „id”.
 
 ##	 Logowanie i „Mój profil”
@@ -20,7 +20,7 @@ Zaraz po uruchomieniu programu, użytkownikowi ukazuje się ekran startowy. Dzie
 
 Po poprawnym zalogowaniu, użytkownikowi ukazuje się panel transakcji. Widnieją w nim zakupy, których dokonał, wraz z niezbędnymi informacjami na ich temat.
 
-Tutaj użytkownik może dokonywać oceny zakupionego przedmiotu (w skali od 1 do 5, a każdy przedmiot można ocenić dokładnie 1 raz), czy też generować faktury. Z tego miejsca, użytkownik może przejść również do panelu zarządzania danymi, który został przedstawiony na rys. 8,  gdzie istnieje możlwość ich edycji oraz doładowania stanu konta.
+Tutaj użytkownik może dokonywać oceny zakupionego przedmiotu (w skali od 1 do 5, a każdy przedmiot można ocenić dokładnie 1 raz), czy też generować faktury. Z tego miejsca, użytkownik może przejść również do panelu zarządzania danymi, gdzie istnieje możlwość ich edycji oraz doładowania stanu konta.
 
 ##	 Rejestracja nowego użytkownika
 
