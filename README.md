@@ -31,7 +31,7 @@ Wówczas, gdy użytkownik nie posiada konta w sklepie, nalezy je założyć.  Po
 Istnieją 3 typy produktów:
 - AGD, czyli przedmioty typu AGD,
 - MOBILES - telefony,
--WEAR -  ubrania.
+- WEAR - ubrania.
 
 Ich przegląd determinują przyciski panelu bocznego. 
 
