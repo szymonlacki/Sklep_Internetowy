@@ -1,5 +1,5 @@
 #	OPIS DZIAŁANIA APLIKACJI I INSTRUKCJA OBSŁUGI
-Aplikacja składa się z szeregu komponentów, które odpowiadają za poszczególne aspekty jej działania. W rozdziale 4 zaprezentowano najważniejsze z nich.
+Aplikacja składa się z szeregu komponentów, które odpowiadają za poszczególne aspekty jej działania. W tym rozdziale zaprezentowano najważniejsze z nich.
 
 
 ##	 Ogólna zasada działania
